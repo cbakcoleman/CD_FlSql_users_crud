@@ -29,7 +29,7 @@ def user_ind(id):
     }
     user_ind = User.get_ind(data)
     print(user_ind)
-    return render_template("user_ind.html", user = user_ind)
+    return render_template("user_ind.html", user_ind = user_ind)
 
 
 @app.route("/delete_user/<int:id>")

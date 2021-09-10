@@ -8,8 +8,27 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
 </head>
 <body class = "container">
+
     <div>
-        <h1>User {{ user.id }}</h1>
+        {% for user in user_ind %}
+            <h2>User {{ user.id }}</h2>
+        {% endfor %}
+    </div>
+
+    <div class="card" style="width: 25rem;">
+        {% for user in user_ind %}
+        <div class="card-body">
+            <p class="mt-5 h5">Full Name: {{ user.first_name }} {{ user.last_name }}</p>
+            <p class="mt-5 h5">Email: {{ user.email }}</p>
+            <p class="mt-5 mb-5 h5">Last Updated On: {{ user.updated_at }}</p>
+        </div>
+        {% endfor %}
+    </div>
+
+    <div>
+        <a href="/"><input class="btn btn-info" type="button" value="Create a New User"></a>
+        <a href="/"><input class="btn btn-info" type="button" value="Create a New User"></a>
+        <a href="/"><input class="btn btn-info" type="button" value="Create a New User"></a>
     </div>
 </body>
 </html>
