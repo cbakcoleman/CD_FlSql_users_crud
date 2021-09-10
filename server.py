@@ -29,18 +29,24 @@ def user_ind(id):
     }
     user_ind = User.get_ind(data)
     print(user_ind)
-    return render_template("user_ind.html", user_ind = user_ind)
+    return render_template("user_ind.html", user = user_ind)
 
 @app.route("/edit_user/<int:id>", methods=["GET", "POST"])
 def edit_user(id):
-    data = {
+    print(request.method)
+    if request.method == "POST":
+        print(request.form)
+        data = {
         "id" : id,
         "first_name" : request.form["first_name"],
         "last_name" : request.form["last_name"],
         "email" : request.form["email"]
-    }
-    edited_user = User.edit_user(data)
-    return redirect("/users_all", edited_user = edited_user)
+        }
+        edited_user = User.edit_user(data)
+        return redirect(f"/user_ind/{id}")
+    else:
+        user = User.get_ind({ "id" : id })
+        return render_template("edit_user.html", user = user)
 
 
 @app.route("/delete_user/<int:id>")

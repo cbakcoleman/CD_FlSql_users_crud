@@ -9,30 +9,34 @@
 </head>
 <body class="container">
     <div>
+        
         <h2>Edit User {{ user.id }}</h2>
-    
+       
         <form action="/edit_user/{{ user.id }}" method="post">
-
+        
             <div class="form-group">
                 <label for="first_name">First Name:</label>
-                <input class="form-control" type="text" name="first_name">
+                <input class="form-control" type="text" name="first_name" value="{{ user.first_name }}">
             </div>
             <div class="form-group">
                 <label for="last_name">Last Name:</label>
-                <input class="form-control" type="text" name="last_name">
+                <input class="form-control" type="text" name="last_name" value="{{ user.last_name }}">
             </div>
             <div class="form-group">
                 <label for="email">Email:</label>
-                <input class="form-control" type="text" name="email">
+                <input class="form-control" type="text" name="email" value="{{ user.email }}">
             </div>
             
             <input style="margin-top: 10px" class="btn btn-info" type="submit" value="Update User">
-
+        
         </form>
 
         <div>
-            <a href="/user_ind/{{ user.id }}" class="btn btn-info">Show User</a>
+            
+            <a href="/user_ind/{{ user.id }}" class="mt-2 btn btn-info">Show User</a>
+            
         </div>
+        
     </div>
 
 </body>

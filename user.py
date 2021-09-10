@@ -28,10 +28,7 @@ class User:
     def get_ind(cls, id):
         query = "SELECT * FROM users WHERE ID = %(id)s ;"
         ind_users = connectToMySQL("users_schema").query_db( query, id )
-        user_ind = []
-        for row in ind_users:
-            user_ind.append( cls(row) )
-        return user_ind
+        return cls(ind_users[0])
 
     @classmethod
     def edit_user(cls, data):
