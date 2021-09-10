@@ -9,9 +9,9 @@
 </head>
 <body class="container">
     <div>
-        <h2>Create User</h2>
+        <h2>Edit User {{ user.id }}</h2>
     
-        <form action="/create_user" method="post">
+        <form action="/edit_user/{{ user.id }}" method="post">
 
             <div class="form-group">
                 <label for="first_name">First Name:</label>
@@ -26,15 +26,14 @@
                 <input class="form-control" type="text" name="email">
             </div>
             
-            <input style="margin-top: 10px" class="btn btn-info" type="submit" value="Create New User">
+            <input style="margin-top: 10px" class="btn btn-info" type="submit" value="Update User">
 
         </form>
-        <a href="/users_all">
-            <input class="mt-2 btn btn-info" type="button" value="Show all Users">
-        </a>
+
+        <div>
+            <a href="/user_ind/{{ user.id }}" class="btn btn-info">Show User</a>
+        </div>
     </div>
 
-
-    
 </body>
 </html>

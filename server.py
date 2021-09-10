@@ -31,9 +31,16 @@ def user_ind(id):
     print(user_ind)
     return render_template("user_ind.html", user_ind = user_ind)
 
-@app.route("edit_user", methods=["POST"])
-def edit_user():
-    
+@app.route("/edit_user/<int:id>", methods=["GET", "POST"])
+def edit_user(id):
+    data = {
+        "id" : id,
+        "first_name" : request.form["first_name"],
+        "last_name" : request.form["last_name"],
+        "email" : request.form["email"]
+    }
+    edited_user = User.edit_user(data)
+    return redirect("/users_all", edited_user = edited_user)
 
 
 @app.route("/delete_user/<int:id>")
