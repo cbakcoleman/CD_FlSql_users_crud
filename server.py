@@ -31,6 +31,10 @@ def user_ind(id):
     print(user_ind)
     return render_template("user_ind.html", user_ind = user_ind)
 
+@app.route("edit_user", methods=["POST"])
+def edit_user():
+    
+
 
 @app.route("/delete_user/<int:id>")
 def delete_user(id):

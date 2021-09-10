@@ -15,7 +15,7 @@
         {% endfor %}
     </div>
 
-    <div class="card" style="width: 25rem;">
+    <div class="card" style="width: 40rem;">
         {% for user in user_ind %}
         <div class="card-body">
             <p class="mt-5 h5">Full Name: {{ user.first_name }} {{ user.last_name }}</p>
@@ -26,9 +26,17 @@
     </div>
 
     <div>
-        <a href="/"><input class="btn btn-info" type="button" value="Create a New User"></a>
-        <a href="/"><input class="btn btn-info" type="button" value="Create a New User"></a>
-        <a href="/"><input class="btn btn-info" type="button" value="Create a New User"></a>
+        {% for user in user_ind %}
+        <a href="/delete_user/{{ user.id }}">
+            <input class="mt-2 btn btn-danger" type="button" value="DELETE User">
+        </a>
+        <a href="PUT SOMETHING HERE">
+            <input class="mt-2 btn btn-warning" type="button" value="EDIT User">
+        </a>
+        <a href="/">
+            <input class="mt-2 btn btn-info" type="button" value="Home">
+        </a>
+        {% endfor %}
     </div>
 </body>
 </html>
